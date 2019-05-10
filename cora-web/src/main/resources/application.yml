@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: cora-app
+  aop:
+    auto: true
+    proxy-target-class: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /cora-app
+    servlet-path: /*
+
+thread:
+  pool:
+    enabled: true
+    core-pool-size: 64
+    max-pool-size: 1000
+    keep-alive-time: 10
+    time-unit: seconds
+    queue-size: 1024
+    scheduled-core-pool-size: 8
+
+mybatis:
+  executor-type: reuse
+  mapper-locations:
+   - classpath*:mybatis/mapper/*.xml
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
